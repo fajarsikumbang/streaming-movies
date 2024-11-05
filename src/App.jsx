@@ -10,7 +10,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const API_KEY = '52bf7f88'; // Replace with your actual OMDb API key
+  const API_KEY = '52bf7f88';
 
   const fetchMovies = async (query) => {
     setLoading(true);
@@ -32,7 +32,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    fetchMovies('batman'); // Fetch default movies on first load
+    fetchMovies('batman');
   }, []);
 
   return (
