@@ -9,7 +9,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const API_KEY = 'f2bb47c2f23b650e0b37f9e69baeea6e'; // Your TMDb API Key
+  const API_KEY = 'f2bb47c2f23b650e0b37f9e69baeea6e';
   const API_URL = 'https://api.themoviedb.org/3';
 
   const fetchMovies = async (query) => {
@@ -30,7 +30,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    fetchMovies('batman'); // Default search query
+    fetchMovies('batman');
   }, []);
 
   return (
@@ -56,6 +56,10 @@ const App = () => {
           <Movie key={movie.id} movie={movie} />
         ))}
       </div>
+      {}
+      <footer className="footer">
+        <p>&copy; 2024 Fajar Sikumbang. All rights reserved.</p>
+      </footer>
     </div>
   );
 };
