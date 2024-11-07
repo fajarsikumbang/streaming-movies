@@ -9,6 +9,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 20px;
 }
 
 
@@ -49,7 +50,7 @@ header {
   color: #333;
 }
 
-/* Search bar styling */
+
 .search-bar input {
   padding: 10px;
   border: 2px solid #ff8c00;
@@ -57,6 +58,7 @@ header {
   border-radius: 4px 0 0 4px;
   width: 300px;
   outline: none;
+  transition: width 0.3s;
 }
 
 .search-bar button {
@@ -67,22 +69,24 @@ header {
   border-left: none;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .search-bar button:hover {
   background-color: #e67300;
 }
 
-/* Movie grid styling */
+
 .movie-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   padding: 20px;
   width: 100%;
   max-width: 1200px;
   margin-top: 20px;
 }
+
 
 .movie {
   background-color: #ffffff;
@@ -92,16 +96,92 @@ header {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   padding: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movie:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .movie img {
   width: 100%;
   height: auto;
   border-bottom: 2px solid #ff8c00;
+  max-height: 300px;
+  object-fit: cover;
 }
 
 .movie h2 {
   font-size: 1rem;
   color: #333;
   margin: 10px 0;
+}
+
+
+.watch-now {
+  background-color: #ff8c00;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.watch-now:hover {
+  background-color: #e67300;
+}
+
+
+.trailer-container {
+  margin-top: 10px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .search-bar input {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+
+  .search-bar button {
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  .subtitle h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .subtitle h1 {
+    font-size: 1.2rem;
+  }
+
+  .movie h2 {
+    font-size: 0.9rem;
+  }
 }

@@ -10,19 +10,20 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const API_KEY = '52bf7f88';
+  const API_KEY = 'f2bb47c2f23b650e0b37f9e69baeea6e';
 
   const fetchMovies = async (query) => {
     setLoading(true);
     setError(null);
     try {
       const response = await axios.get(
-        `https://www.omdbapi.com/?s=${query}&apikey=${API_KEY}`
+        `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${API_KEY}&language=en-US`
       );
-      if (response.data.Response === 'True') {
-        setMovies(response.data.Search);
+      console.log(response.data);
+      if (response.data.results.length > 0) {
+        setMovies(response.data.results);
       } else {
-        setError(response.data.Error);
+        setError('No movies found');
       }
     } catch (err) {
       setError('Error fetching data');
@@ -37,12 +38,16 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} onSearch={() => fetchMovies(searchTerm)} />
+      <Header 
+        searchTerm={searchTerm} 
+        setSearchTerm={setSearchTerm} 
+        onSearch={() => fetchMovies(searchTerm)} 
+      />
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       <div className="movie-grid">
         {movies.map((movie) => (
-          <Movie key={movie.imdbID} movie={movie} />
+          <Movie key={movie.id} movie={movie} />
         ))}
       </div>
     </div>
