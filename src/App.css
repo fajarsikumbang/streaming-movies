@@ -9,9 +9,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 20px;
+  padding: 20px;
 }
-
 
 header {
   background-color: #ff8c00;
@@ -35,22 +34,6 @@ header {
   font-weight: bold;
 }
 
-.search-bar {
-  display: flex;
-  align-items: center;
-}
-
-.subtitle {
-  margin-top: 10px;
-  text-align: center;
-}
-
-.subtitle h1 {
-  font-size: 1.8rem;
-  color: #333;
-}
-
-
 .search-bar input {
   padding: 10px;
   border: 2px solid #ff8c00;
@@ -58,7 +41,6 @@ header {
   border-radius: 4px 0 0 4px;
   width: 300px;
   outline: none;
-  transition: width 0.3s;
 }
 
 .search-bar button {
@@ -69,13 +51,11 @@ header {
   border-left: none;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 .search-bar button:hover {
   background-color: #e67300;
 }
-
 
 .movie-grid {
   display: grid;
@@ -84,9 +64,7 @@ header {
   padding: 20px;
   width: 100%;
   max-width: 1200px;
-  margin-top: 20px;
 }
-
 
 .movie {
   background-color: #ffffff;
@@ -96,92 +74,32 @@ header {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   padding: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.movie:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .movie img {
   width: 100%;
   height: auto;
   border-bottom: 2px solid #ff8c00;
-  max-height: 300px;
-  object-fit: cover;
 }
 
 .movie h2 {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #333;
   margin: 10px 0;
 }
 
-
 .watch-now {
+  margin-top: 10px;
+}
+
+.watch-now a {
   background-color: #ff8c00;
-  color: #fff;
-  padding: 8px 16px;
-  border: none;
+  color: #ffffff;
+  padding: 10px 20px;
   border-radius: 4px;
-  cursor: pointer;
-  margin-top: 10px;
   text-decoration: none;
-  transition: background-color 0.3s;
 }
 
-.watch-now:hover {
+.watch-now a:hover {
   background-color: #e67300;
-}
-
-
-.trailer-container {
-  margin-top: 10px;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-}
-
-
-
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .search-bar input {
-    width: 100%;
-    margin-bottom: 10px;
-    border-radius: 4px;
-  }
-
-  .search-bar button {
-    width: 100%;
-    border-radius: 4px;
-  }
-
-  .movie-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-  }
-
-  .subtitle h1 {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo {
-    font-size: 1.5rem;
-  }
-
-  .subtitle h1 {
-    font-size: 1.2rem;
-  }
-
-  .movie h2 {
-    font-size: 0.9rem;
-  }
 }
